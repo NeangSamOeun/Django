@@ -1,0 +1,15 @@
+{% extends "shop/master.html" %} 
+{% load html_formatters %}
+{% load static %} 
+{% block main %}
+<div id="productgrid">
+    {% for product in products %}
+    <div class="product">
+        <img src="{% productimage product.image%}" alt="">
+        <a href="{% url 'products' product.id %}">Product : {{ product.name}}</a>
+        <p>{{ product.name }}</p>
+        <p>Price : {{ product.price }} $</p>
+    </div>
+    {% endfor %} 
+</div>
+{% endblock %}

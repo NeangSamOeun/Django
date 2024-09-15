@@ -1,0 +1,10 @@
+
+
+{% extends "shop/master.html" %}
+{% load html_formatters %}
+{% block main %}
+<img class="productdetailsimage" src="{% productimage image %}" alt="">
+<p>{{ price }}</p>
+<p>{{ description }}</p>
+<p>{{ volume }}</p>
+{% endblock %}

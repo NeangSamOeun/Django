@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Genero's webshop</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'shop/style/screen.css' %}">
+    </head>
+<body>
+    <div class="header">
+        <div>
+            <div class="search">
+                <form action="{% url 'index' %}" method="get">
+                    <input type="text" name="q" placeholder="Search" value="{{ filter }}">
+                    <button>Search</button>
+                </form>
+            </div>
+            <ul>
+                <li><a href="{% url 'index' %}">All</a></li>
+                {% for category in categories %}
+                <li><a href="{% url 'categories' category.id %}">{{category.name}}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <h1>{{ title }}</h1>
+    {% block main %}{% endblock%}
+</body>
+</html>
